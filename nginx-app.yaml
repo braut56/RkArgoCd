@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   name: hello-node
   namespace: dev
-  labels:
-    app: hello-node
 spec:
   replicas: 3
   selector:
@@ -16,7 +14,7 @@ spec:
         app: hello-node
     spec:
       containers:
-      - name: echoserver
+      - name: hello-node
         image: k8s.gcr.io/echoserver:1.10
         ports:
         - containerPort: 8080
@@ -27,11 +25,9 @@ metadata:
   name: hello-node
   namespace: dev
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: hello-node
   ports:
-  - protocol: TCP
-    port: 8080       # service port
-    targetPort: 8080 # container port
-    nodePort: 30000
+  - port: 8080
+    targetPort: 8080
