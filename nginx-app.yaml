@@ -1,9 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:hello-node1
-   labels:
-    app: hello-node
+ name: hello-node
   namespace: dev
 spec:
   replicas: 3
@@ -56,5 +54,6 @@ spec:
             name: hello-node
             port:
               number: 8080
+
 
 
