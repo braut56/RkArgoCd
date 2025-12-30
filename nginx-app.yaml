@@ -2,11 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-node
-   namespace: dev
+  namespace: dev
   labels:
     app: hello-node
 spec:
-  replicas: 5
+  replicas: 2
   selector:
     matchLabels:
       app: hello-node
@@ -35,4 +35,3 @@ spec:
     port: 8080       # service port
     targetPort: 8080 # container port
     nodePort: 30000
-
